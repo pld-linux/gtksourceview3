@@ -4,12 +4,12 @@
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	2.91.4
+Version:	2.91.5
 Release:	1
 License:	GPL v2+ and LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/2.91/gtksourceview-%{version}.tar.bz2
-# Source0-md5:	1c3f9211c1e4f4276b77624f417598c6
+# Source0-md5:	3b3a217e8ddad65b4f2ca8e4497964ff
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.10.3
@@ -17,7 +17,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.9.0
-BuildRequires:	gtk+3-devel >= 2.91.7
+BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
@@ -61,7 +61,7 @@ Summary:	Header files for GtkSourceView
 Summary(pl.UTF-8):	Pliki nagłówkowe dla GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.14.0
+Requires:	gtk+3-devel >= 3.0.0
 Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
@@ -92,8 +92,8 @@ Glade3 catalog entry for GtkSourceView library.
 
 %prep
 %setup -q -n gtksourceview-%{version}
-sed -i s#^en@shaw## po/LINGUAS
-rm po/en@shaw.po
+sed -i "s#^en@shaw##" po/LINGUAS
+%{__rm} po/en@shaw.po
 
 %build
 %{__gtkdocize}
@@ -118,6 +118,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %find_lang gtksourceview-3.0
 
 %clean
@@ -140,7 +142,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtksourceview-3.0.so
-%{_libdir}/libgtksourceview-3.0.la
 %{_includedir}/gtksourceview-3.0
 %{_pkgconfigdir}/gtksourceview-3.0.pc
 %{_datadir}/gir-1.0/GtkSource-3.0.gir
