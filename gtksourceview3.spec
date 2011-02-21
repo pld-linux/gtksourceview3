@@ -1,15 +1,16 @@
-# bconds:
+#
+# Conditional build:
 %bcond_with 	glade	# install glade catalog
 #
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	2.91.5
+Version:	2.91.6
 Release:	1
 License:	GPL v2+ and LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/2.91/gtksourceview-%{version}.tar.bz2
-# Source0-md5:	3b3a217e8ddad65b4f2ca8e4497964ff
+# Source0-md5:	fe7614a0b22df79ff65637e295329bc3
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.10.3
@@ -23,11 +24,11 @@ BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
 BuildRequires:	libgladeui-devel >= 3.2.0
 %endif
-BuildRequires:	libtool >= 2.2.6
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
-Requires:	glib2 >= 1:2.24
+Requires:	glib2 >= 1:2.28.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -48,7 +49,6 @@ Summary:	GtkSourceView API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkSourceView
 Group:		Documentation
 Requires:	gtk-doc-common
-Conflicts:	gtksourceview-apidocs
 
 %description apidocs
 GtkSourceView API documentation.
@@ -92,8 +92,6 @@ Glade3 catalog entry for GtkSourceView library.
 
 %prep
 %setup -q -n gtksourceview-%{version}
-sed -i "s#^en@shaw##" po/LINGUAS
-%{__rm} po/en@shaw.po
 
 %build
 %{__gtkdocize}
