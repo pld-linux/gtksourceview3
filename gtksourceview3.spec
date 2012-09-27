@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
 Version:	3.6.0
 Release:	1
-License:	GPL v2+ and LGPL v2+
+License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.6/gtksourceview-%{version}.tar.xz
 # Source0-md5:	b61bfe57e0b76ad38532e457c200ce2a
@@ -32,6 +32,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
+Requires:	gtk+3 >= 3.4.0
 Requires:	libxml2 >= 1:2.6.31
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -89,11 +90,16 @@ Statyczna biblioteka GtkSourceView.
 
 %package -n glade3-gtksourceview
 Summary:	Glade3 catalog entry for GtkSourceView library
+Summary(pl.UTF-8):	Wpis katalogu Glade3 dla biblioteki GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Requires:	libgladeui >= 3.9.0
 
 %description -n glade3-gtksourceview
 Glade3 catalog entry for GtkSourceView library.
+
+%description -n glade3-gtksourceview -l pl.UTF-8
+Wpis katalogu Glade3 dla biblioteki GtkSourceView.
 
 %prep
 %setup -q -n gtksourceview-%{version}
@@ -107,12 +113,12 @@ Glade3 catalog entry for GtkSourceView library.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
-	--enable-static \
-	--with-html-dir=%{_gtkdocdir} \
 	%{__enable glade glade-catalog} \
+	--enable-gtk-doc \
 	--enable-providers \
-	--disable-silent-rules
+	--disable-silent-rules \
+	--enable-static \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
