@@ -5,21 +5,21 @@
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	3.6.3
+Version:	3.8.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.6/gtksourceview-%{version}.tar.xz
-# Source0-md5:	e8df1c01ef6864e68c4c5b15fe71e2c6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.8/gtksourceview-%{version}.tar.xz
+# Source0-md5:	b4d72cf0998a8ba4f08a8cd2c96b7844
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel >= 0.17
-BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	glib2-devel >= 1:2.34.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
-BuildRequires:	gtk+3-devel >= 3.4.0
+BuildRequires:	gtk+3-devel >= 3.8.0
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
@@ -31,8 +31,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.32.0
-Requires:	gtk+3 >= 3.4.0
+Requires:	glib2 >= 1:2.34.0
+Requires:	gtk+3 >= 3.8.0
 Requires:	libxml2 >= 1:2.6.31
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -66,8 +66,8 @@ Summary:	Header files for GtkSourceView
 Summary(pl.UTF-8):	Pliki nagłówkowe dla GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.32.0
-Requires:	gtk+3-devel >= 3.4.0
+Requires:	glib2-devel >= 1:2.34.0
+Requires:	gtk+3-devel >= 3.8.0
 Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
@@ -140,7 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f gtksourceview-3.0.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgtksourceview-3.0.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgtksourceview-3.0.so.0
+%attr(755,root,root) %ghost %{_libdir}/libgtksourceview-3.0.so.1
 %{_datadir}/gtksourceview-3.0
 %{_libdir}/girepository-1.0/GtkSource-3.0.typelib
 
