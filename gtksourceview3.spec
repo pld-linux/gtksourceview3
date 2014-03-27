@@ -5,12 +5,12 @@
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	3.10.2
+Version:	3.12.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.10/gtksourceview-%{version}.tar.xz
-# Source0-md5:	64cabe12716f43b36092be398e7d7912
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.12/gtksourceview-%{version}.tar.xz
+# Source0-md5:	8850fc0aee4893668ede37a30ef05e85
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
@@ -19,7 +19,7 @@ BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
@@ -32,7 +32,7 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.38.0
-Requires:	gtk+3 >= 3.10.0
+Requires:	gtk+3 >= 3.12.0
 Requires:	libxml2 >= 1:2.6.31
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -67,7 +67,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.38.0
-Requires:	gtk+3-devel >= 3.10.0
+Requires:	gtk+3-devel >= 3.12.0
 Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
