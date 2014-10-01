@@ -1,16 +1,17 @@
 #
 # Conditional build:
 %bcond_with 	glade	# install glade catalog
+%bcond_without	vala	# do not build Vala API
 #
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	3.12.3
+Version:	3.14.0
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.12/gtksourceview-%{version}.tar.xz
-# Source0-md5:	6d9aa2cf925751bf708feaf74d3317b0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.14/gtksourceview-%{version}.tar.xz
+# Source0-md5:	6e8ca4df0ab1b6797b64ed63ba4399ea
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
@@ -19,7 +20,7 @@ BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.10.0
-BuildRequires:	gtk+3-devel >= 3.12.0
+BuildRequires:	gtk+3-devel >= 3.14.0
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
@@ -30,9 +31,10 @@ BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-pythonprov
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	vala
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.38.0
-Requires:	gtk+3 >= 3.12.0
+Requires:	gtk+3 >= 3.14.0
 Requires:	libxml2 >= 1:2.6.31
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -67,7 +69,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe dla GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.38.0
-Requires:	gtk+3-devel >= 3.12.0
+Requires:	gtk+3-devel >= 3.14.0
 Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
@@ -100,6 +102,19 @@ Glade3 catalog entry for GtkSourceView library.
 
 %description -n glade3-gtksourceview -l pl.UTF-8
 Wpis katalogu Glade3 dla biblioteki GtkSourceView.
+
+%package -n vala-gtksourceview
+Summary:	GtkSourceView API for Vala language
+Summary(pl.UTF-8):	API GtkSourceView dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala
+
+%description -n vala-gtksourceview
+GtkSourceView API for Vala language.
+
+%description -n vala-gtksourceview -l pl.UTF-8
+API GtkSourceView dla języka Vala.
 
 %prep
 %setup -q -n gtksourceview-%{version}
@@ -163,4 +178,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -n glade3-gtksourceview
 %defattr(644,root,root,755)
 %{_datadir}/glade3/catalogs/gtksourceview.xml
+%endif
+
+%if %{with vala}
+%files -n vala-gtksourceview
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/gtksourceview-3.0.deps
+%{_datadir}/vala/vapi/gtksourceview-3.0.vapi
 %endif
