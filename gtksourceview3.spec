@@ -6,12 +6,12 @@
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	3.14.1
+Version:	3.14.2
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.14/gtksourceview-%{version}.tar.xz
-# Source0-md5:	a769939c7a3e3a07d365740404de1bd7
+# Source0-md5:	1bc4aefc1f8a013f47dbc27aa9b5ca00
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
