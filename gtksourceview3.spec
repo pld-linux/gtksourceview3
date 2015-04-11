@@ -19,7 +19,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	glib2-devel >= 1:2.43.3
 BuildRequires:	gnome-common >= 2.24.0
-BuildRequires:	gobject-introspection-devel >= 0.10.0
+BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk+3-devel >= 3.15.3
 BuildRequires:	gtk-doc >= 1.18
 BuildRequires:	intltool >= 0.40.0
