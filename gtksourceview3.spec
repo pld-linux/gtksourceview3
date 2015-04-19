@@ -6,21 +6,21 @@
 Summary:	Text widget that extends the standard GTK+ 3.x
 Summary(pl.UTF-8):	Widget tekstowy rozszerzający standardowy z GTK+ 3.x
 Name:		gtksourceview3
-Version:	3.16.0
+Version:	3.16.1
 Release:	1
 License:	LGPL v2+ (library), GPL v2+ (some language specs files)
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.16/gtksourceview-%{version}.tar.xz
-# Source0-md5:	d4e3b50ed497d48b8fcf09e7ffa3d039
+# Source0-md5:	e727db8202d23a54b54b69ebc66f5331
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake >= 1:1.11
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.17
-BuildRequires:	glib2-devel >= 1:2.43.3
+BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 1.42.0
-BuildRequires:	gtk+3-devel >= 3.15.3
+BuildRequires:	gtk+3-devel >= 3.16.0
 BuildRequires:	gtk-doc >= 1.18
 BuildRequires:	intltool >= 0.40.0
 %if %{with glade}
@@ -33,8 +33,8 @@ BuildRequires:	rpm-pythonprov
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.43.3
-Requires:	gtk+3 >= 3.15.3
+Requires:	glib2 >= 1:2.44.0
+Requires:	gtk+3 >= 3.16.0
 Requires:	libxml2 >= 1:2.6.31
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
@@ -68,8 +68,8 @@ Summary:	Header files for GtkSourceView
 Summary(pl.UTF-8):	Pliki nagłówkowe dla GtkSourceView
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.43.3
-Requires:	gtk+3-devel >= 3.15.3
+Requires:	glib2-devel >= 1:2.44.0
+Requires:	gtk+3-devel >= 3.16.0
 Requires:	libxml2-devel >= 1:2.6.31
 
 %description devel
