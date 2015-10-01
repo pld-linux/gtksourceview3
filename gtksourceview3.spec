@@ -14,6 +14,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.18/gtksourceview
 # Source0-md5:	8e99579d6a8b2fdae45b557f40df0176
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf >= 2.64
+BuildRequires:	autoconf-archive >= 2015.09.25
 BuildRequires:	automake >= 1:1.13
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.17
@@ -119,11 +120,14 @@ API GtkSourceView dla języka Vala.
 %prep
 %setup -q -n gtksourceview-%{version}
 
+# force new version from autoconf-archive (original one uses non-POSIX ${V:N} syntax)
+%{__rm} m4/ax_compiler_flags_cflags.m4
+
 %build
 %{__gtkdocize}
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
