@@ -19,7 +19,6 @@ BuildRequires:	automake >= 1:1.13
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.19.4
 BuildRequires:	glib2-devel >= 1:2.48.0
-BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 1.42.0
 BuildRequires:	gtk+3-devel >= 3.20.0
 BuildRequires:	gtk-doc >= 1.25
