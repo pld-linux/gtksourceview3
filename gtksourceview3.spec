@@ -56,9 +56,7 @@ Summary:	GtkSourceView API documentation
 Summary(pl.UTF-8):	Dokumentacja API GtkSourceView
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 GtkSourceView API documentation.
@@ -112,9 +110,7 @@ Summary(pl.UTF-8):	API GtkSourceView dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-gtksourceview
 GtkSourceView API for Vala language.
